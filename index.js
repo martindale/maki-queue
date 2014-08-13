@@ -33,6 +33,11 @@ var Queue = function( config ) {
 
   util.inherits( self.Worker , EventEmitter );
 
+  self.Worker.prototype.attach = function( event , cb ) {
+    var me = this;
+    // TODO: attach events
+  } 
+
   self.Worker.prototype.register = function( processors ) {
     this._worker.register( processors );
   }
@@ -51,6 +56,17 @@ Queue.prototype.bind = function( app ) {
   app._jobs = this._monq;
 
   return app;
+};
+
+Queue.prototype.use = function( plugin ) {
+  var self = this;
+
+  if (typeof(plugin.events) === 'object') {
+    Object.keys( plugin.events ).forEach(function( eventName ) {
+      //plugin.events[ eventName ]
+    });
+  }
+
 };
 
 module.exports = Queue;
