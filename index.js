@@ -6,6 +6,13 @@ var Monq = require('monq');
 var Queue = function( config ) {
   var self = this;
 
+  if (!config) var config = {};
+  if (!config.database) {
+    config.database = {
+      name: 'maki-queue'
+    }
+  }
+
   self._monq = Monq('mongodb://localhost:27017/' + config.database.name );
   self._jobs = self._monq.queue( config.database.name );
 
