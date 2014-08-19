@@ -76,7 +76,7 @@ describe('Queue', function() {
         if (worker.jobRun === true) {
           done();
         }
-      }, 50);
+      }, 10);
 
     });
   });
