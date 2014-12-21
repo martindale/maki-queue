@@ -95,5 +95,14 @@ describe('Queue', function() {
       }, 10);
 
     });
+    
+    it('should emit a startup callback', function(done) {
+      var Queue = require('../');
+      var queue = new Queue();
+      
+      var worker = new queue.Worker();
+      worker.start( done );
+    });
+    
   });
 });
