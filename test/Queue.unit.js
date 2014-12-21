@@ -13,11 +13,18 @@ describe('Queue', function() {
       assert.equal( typeof( require('../') ) , 'function' );
       done();
     });
-
+    
     it('should instantiate a queue', function(done) {
       var Queue = require('../');
       var queue = new Queue();
-
+      
+      done();
+    });
+    
+    it('should instantiate a queue with a string name', function(done) {
+      var Queue = require('../');
+      var queue = new Queue('some-other-database');
+      
       done();
     });
 
