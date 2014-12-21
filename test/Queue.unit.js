@@ -49,13 +49,22 @@ describe('Queue', function() {
       assert.equal( typeof( queue.Worker ) , 'function' );
       done();
     });
-
+    
     it('should instantiate a worker', function(done) {
       var Queue = require('../');
       var queue = new Queue();
-
+      
       var worker = new queue.Worker( config.database.name );
-
+      
+      done();
+    });
+    
+    it('should instantiate a worker without a name', function(done) {
+      var Queue = require('../');
+      var queue = new Queue();
+      
+      var worker = new queue.Worker();
+      
       done();
     });
 
