@@ -40,6 +40,17 @@ describe('Queue', function() {
       });
 
     });
+    
+    it('should bind to an app', function() {
+      var Queue = require('../');
+      var queue = new Queue();
+      
+      var app = {};
+      
+      queue.bind( app );
+      
+    });
+    
   });
   describe('#Worker', function() {
     it('should expose a constructor for the Worker', function(done) {
