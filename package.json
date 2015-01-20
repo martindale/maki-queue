@@ -24,6 +24,8 @@
   },
   "homepage": "https://github.com/martindale/maki-queue",
   "dependencies": {
+    "mongoose": "^3.8.21",
+    "mongoose-agency": "0.0.0",
     "monq": "^0.3.1"
   },
   "devDependencies": {

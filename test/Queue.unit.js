@@ -73,11 +73,11 @@ describe('Queue', function() {
       var queue = new Queue();
 
       var worker = new queue.Worker( config.database.name );
-      worker.jobRun = false;
+      var jobWasRun = false;
 
       worker.register({
         'test': function( data , jobIsDone ) {
-          worker.jobRun = true;
+          jobWasRun = true;
           jobIsDone();
         }
       });
@@ -88,8 +88,9 @@ describe('Queue', function() {
         foo: 'bar'
       }, function(err) {});
 
-      setInterval(function() {
-        if (worker.jobRun === true) {
+      var tester = setInterval(function() {
+        if (jobWasRun === true) {
+          clearInterval( tester );
           done();
         }
       }, 10);
